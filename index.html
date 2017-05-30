@@ -3,66 +3,6 @@
         <title>Login page</title>
     </head>
     <body>
-        <h1>Simple Login Page</h1>
-        <form name="login">
-            Username<input type="text" name="userid"/>
-            Password<input type="password" name="pswrd"/>
-            <input type="button" onclick="check(this.form)" value="Login"/>
-            <input type="reset" value="Cancel"/><br/>
-           
-        </form>
-        <script language="javascript">
-            function check(form) {
-
-             
-
-                var http = new XMLHttpRequest();
-                var url = "https://pfizer-consumer-dev.us-dev.janraincapture.com/oauth/auth_native_traditional";                
-                var body = {
-                    client_id: '9q6udv5tmqfu6esdzwt3jaxkfhdubsfu', 
-                    flow: 'standard',
-                    flow_version: '737d5aa7-7cda-4ce5-879e-55b5c216505d',
-                    locale: 'en-US',
-                    redirect_uri: 'http://localhost',
-                    response_type: 'token',
-                    form: 'signInForm',
-                    signInEmailAddress: form.userid.value,
-                    currentPassword: form.pswrd.value
-                 };
-                http.open("POST", url, true);
-
-                 http.setRequestHeader('Access-Control-Allow-Origin', '*');             
-                 http.setRequestHeader('Access-Control-Allow-Methods', 'GET,POST');
-                  http.setRequestHeader('Access-Control-Allow-Methods', ' X-Requested-With,content-type, Authorization');
-
-                //Send the proper header information along with the request
-                http.setRequestHeader("Authorization","Basic eTJ5bWR1bjk0YmJwbndmcThrc21xMmFnN3I1M21wcnM6emVzYXhkYmY0eDd5aGtncTY3M3hteXg1N3BtZzhuYW0="
-                    );
-                http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-               http.withCredentials = true;
-
-                 http.send(JSON.stringify(body));
-
-                http.onreadystatechange = function() {//Call a function when the state changes.
-                    if(http.readyState == 4 && http.status == 200) {
-                      //  alert(http.responseText);
-                      var object = JSON.parse(http.response);
-                      if(object.code=="210") {
-                           alert("Invalid Username or password");
-                           
-                        }
-                        else{
-                            console.log(object.capture_user.email);
-                            alert(object.capture_user.email);  
-                             window.location="https://pitangui.amazon.com/api/skill/link/M7C8L14TOMWDT";                          
-                          
-                        }
-                    }
-                    
-                    console.log(http);
-                }
-               
-            }
-        </script>
+       helloasdasd
     </body>
 </html>
